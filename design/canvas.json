@@ -1,0 +1,16 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Desktop.dc.html": {"expand": "fill", "h": 3480, "title": "4 · Graphite desktop", "w": 1440, "x": 1410, "y": 0}
+  },
+  "createdOnFiles": {"at": "2026-10-02T12:56:00Z", "v": 1},
+  "designSystems": [],
+  "launch": {"view": "canvas"},
+  "notes": {
+    "t1": {"kind": "title1", "maxW": 2850, "text": "HutchX: matte variations", "w": 240, "x": 0, "y": -260}
+  },
+  "order": ["Desktop.dc.html"],
+  "pages": [],
+  "title": "HutchX Matte Variations"
+}

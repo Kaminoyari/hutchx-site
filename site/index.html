@@ -1,0 +1,233 @@
+<title>HutchX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: link-in-bio column. Header with CTA, headline, call prompt, featured video, three stacked offer cards, YouTube series, socials, footer. */
+:root{
+  --bg:#121212; --surface:#1c1c1c; --surface-2:#262626; --line:#2e2e2e;
+  --fg:#ececec; --muted:#9a9a9a; --dim:#6b6b6b;
+  --btn:#ececec; --btn-fg:#121212; --art-mid:#3a3a3a; --art-deep:#121212;
+  --sans:"Geist",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#ececea; --surface:#f6f6f4; --surface-2:#dcdcd8; --line:#d0d0cb;
+    --fg:#141414; --muted:#5c5c58; --dim:#8a8a85;
+    --btn:#141414; --btn-fg:#f6f6f4; --art-mid:#c4c4bf; --art-deep:#a9a9a4;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#ececea; --surface:#f6f6f4; --surface-2:#dcdcd8; --line:#d0d0cb;
+  --fg:#141414; --muted:#5c5c58; --dim:#8a8a85;
+  --btn:#141414; --btn-fg:#f6f6f4; --art-mid:#c4c4bf; --art-deep:#a9a9a4;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.4;-webkit-font-smoothing:antialiased;padding-inline:16px}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.wrap{max-width:560px;margin-inline:auto;display:flex;flex-direction:column;gap:14px;padding-block:16px 0}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:24px;min-width:0}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 10px 10px 22px;border-radius:999px}
+.logo{font-weight:700;font-size:22px;letter-spacing:-.04em}
+.pill{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;background:var(--btn);color:var(--btn-fg);font-weight:600;font-size:14px;transition:transform .2s}
+.pill:hover{transform:translateY(-2px)}
+.pill.ghost{background:none;color:var(--fg);border:1px solid var(--dim)}
+
+/* buttons with arrow disc */
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;padding:7px 7px 7px 24px;border-radius:999px;background:var(--btn);color:var(--btn-fg);font-weight:600;font-size:14px;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn b{width:40px;height:40px;border-radius:50%;background:var(--btn-fg);color:var(--btn);display:grid;place-items:center;font-size:18px;font-weight:400}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:22px;padding:28px 22px 22px}
+.hero h1{margin:0;font-size:30px;line-height:1.08;font-weight:600;letter-spacing:-.035em;text-wrap:balance}
+.hero p{margin:0;color:var(--muted);font-size:16px;max-width:42ch}
+.ask{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:18px;border-top:1px solid var(--line)}
+.ask span{color:var(--muted)}
+
+/* media */
+.media{position:relative;display:block;overflow:hidden;aspect-ratio:4/3.1;background:var(--surface-2);padding:0}
+.media svg.pic{position:absolute;inset:0;width:100%;height:100%}
+.tag{position:absolute;padding:6px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--fg)}
+.tag.tl{left:14px;top:14px}.tag.bl{left:14px;bottom:14px}
+.play{position:absolute;right:14px;bottom:14px;width:60px;height:60px;border-radius:50%;background:var(--btn);display:grid;place-items:center;transition:transform .2s}
+.media:hover .play{transform:scale(1.06)}
+.play svg{width:20px;height:22px;fill:var(--btn-fg)}
+.a-bg{fill:var(--surface-2)}.a-mid{fill:var(--art-mid)}.a-ink{fill:var(--fg)}.a-deep{fill:var(--art-deep)}.a-soft{fill:var(--fg);opacity:.4}
+.a-out{fill:var(--bg);stroke:var(--dim)}.a-label{font-family:var(--sans);font-weight:700;letter-spacing:-.04em}
+
+/* offer cards */
+.offers{display:flex;flex-direction:column;gap:14px;padding:0;margin:0;list-style:none}
+.offer{display:flex;flex-direction:column;overflow:hidden}
+.offer .art{position:relative;aspect-ratio:16/8;background:var(--surface-2)}
+.offer .art svg{position:absolute;inset:0;width:100%;height:100%}
+.offer .body{display:flex;flex-direction:column;gap:12px;padding:20px 22px 22px}
+.offer .mono{color:var(--muted)}
+.offer h2{margin:0;font-size:24px;line-height:1.1;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
+.offer p{margin:0;color:var(--muted);font-size:15px}
+.offer .btn{align-self:flex-start;margin-top:6px}
+
+/* statement */
+.big{margin:0;padding:28px 6px 8px;font-size:clamp(44px,13vw,64px);line-height:.95;font-weight:700;letter-spacing:-.05em;text-wrap:balance}
+.big span{display:block;color:var(--dim)}
+
+/* series */
+.series-body{display:flex;flex-direction:column;gap:12px;padding:20px 22px 22px}
+.series-body .mono{color:var(--muted)}
+.series-body h2{margin:0;font-size:32px;line-height:1;font-weight:700;letter-spacing:-.045em}
+.series-body p{margin:0;color:var(--muted);font-size:15px}
+.series-body .btn{align-self:flex-start;margin-top:6px}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
+.chips a{padding:13px 22px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:600;font-size:14px;transition:transform .2s}
+.chips a:hover{transform:translateY(-2px)}
+
+/* footer */
+.foot{margin:20px -16px 0;padding:28px 22px 18px;background:var(--surface);border-top:1px solid var(--line);border-radius:28px 28px 0 0}
+.foot-in{max-width:560px;margin-inline:auto}
+.foot .wm{margin:0 -4px 12px;font-size:clamp(70px,24vw,128px);font-weight:700;letter-spacing:-.07em;line-height:.85;white-space:nowrap}
+.foot .row{display:flex;justify-content:space-between;gap:12px;color:var(--muted)}
+
+/* motion: page-load rise, scroll-linked reveals, one ambient pulse. Every element rests fully visible. */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes ring{from{opacity:.5;transform:scale(1)}to{opacity:0;transform:scale(1.35)}}
+@keyframes grow{from{transform:scaleY(.15)}to{transform:scaleY(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes rise-soft{from{opacity:.35;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes slidein{from{opacity:.4;transform:translateX(-36px)}to{opacity:1;transform:none}}
+.wrap > .top,.wrap > .hero,.wrap > .media{animation:rise .75s cubic-bezier(.2,.7,.2,1) both}
+.wrap > .hero{animation-delay:.08s}
+.wrap > .media{animation-delay:.16s}
+.play:after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--btn);animation:ring 2.4s ease-out infinite;pointer-events:none}
+.btn b{transition:transform .2s}
+.btn:hover b{transform:translateX(3px)}
+.offer{transition:translate .25s ease,border-color .25s ease}
+.offer:hover{translate:0 -3px;border-color:var(--dim)}
+@supports (animation-timeline:view()){
+  .offer,.big,#series,.chips,.foot{animation:rise-soft linear both;animation-timeline:view();animation-range:entry 0% entry 45%}
+  .big span{animation:rise-soft linear both;animation-timeline:view();animation-range:entry 15% entry 60%}
+  .slide-in{animation:slidein linear both;animation-timeline:view();animation-range:entry 10% entry 80%}
+  .offer:nth-child(3) .art rect.a-ink{transform-box:fill-box;transform-origin:bottom;animation:grow linear both;animation-timeline:view();animation-range:entry 10% entry 60%}
+  .offer:nth-child(3) .art rect.a-ink:nth-of-type(3){animation-range:entry 20% entry 70%}
+  .offer:nth-child(3) .art rect.a-ink:nth-of-type(4){animation-range:entry 30% entry 80%}
+  .offer:nth-child(3) .art rect.a-ink:nth-of-type(5){animation-range:entry 40% entry 90%}
+  .offer:nth-child(3) .a-chk{animation:fade linear both;animation-timeline:view();animation-range:entry 70% entry 100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+
+<div class="wrap">
+  <header class="panel top">
+    <div class="logo">HutchX</div>
+    <a class="pill" href="#apply">Work with us</a>
+  </header>
+
+  <section class="panel hero">
+    <h1>Sales for founder-led agencies, from the first conversation to the closed deal.</h1>
+    <p>Built for founder-led marketing and content agencies with a proven service that need a more reliable sales function behind the business.</p>
+    <div class="ask">
+      <span>Prefer to talk it through?</span>
+      <a class="pill ghost" href="#apply">Book a call</a>
+    </div>
+  </section>
+
+  <a class="panel media" href="#apply" aria-label="Play intro video">
+    <svg class="pic" viewBox="0 0 358 277" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect class="a-bg" width="358" height="277"/>
+      <circle class="a-mid" cx="64" cy="58" r="38" opacity=".6"/><circle class="a-mid" cx="308" cy="226" r="26" opacity=".6"/>
+      <path class="a-mid" d="M89 277V150a90 90 0 0 1 180 0v127z"/>
+      <circle class="a-ink" cx="179" cy="118" r="34"/>
+      <path class="a-deep" d="M119 277c0-54 27-82 60-82s60 28 60 82z"/>
+    </svg>
+    <span class="tag mono tl">Intro · 01:12</span>
+    <span class="tag mono bl">Meet HutchX</span>
+    <span class="play"><svg viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1l16 10L2 21z"/></svg></span>
+  </a>
+
+  <ul class="offers">
+    <li class="panel offer">
+      <div class="art"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect class="a-bg" width="400" height="200"/>
+        <g class="slide-in"><rect class="a-ink" x="40" y="34" width="190" height="46" rx="23"/><rect class="a-deep" x="62" y="54" width="100" height="7" rx="3.5"/></g>
+        <g class="slide-in" style="animation-delay:.05s"><rect class="a-out" x="130" y="94" width="190" height="46" rx="23"/><rect class="a-ink" x="152" y="114" width="110" height="7" rx="3.5"/></g>
+        <g class="slide-in"><rect class="a-ink" x="40" y="154" width="150" height="46" rx="23"/><rect class="a-deep" x="62" y="174" width="84" height="7" rx="3.5"/></g>
+      </svg></div>
+      <div class="body">
+        <span class="mono">Step 01</span>
+        <h2>First conversation</h2>
+        <p>HutchX is the first voice founders hear, so your agency starts every sales relationship with a conversation that is already running.</p>
+        <a class="btn" href="#apply">Apply here <b>→</b></a>
+      </div>
+    </li>
+    <li class="panel offer">
+      <div class="art"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect class="a-bg" width="400" height="200"/>
+        <rect class="a-out" x="90" y="24" width="220" height="164" rx="16"/>
+        <rect class="a-ink" x="114" y="48" width="100" height="9" rx="4.5"/>
+        <rect class="a-soft" x="114" y="74" width="170" height="7" rx="3.5"/><rect class="a-soft" x="114" y="92" width="140" height="7" rx="3.5"/><rect class="a-soft" x="114" y="110" width="156" height="7" rx="3.5"/>
+        <rect class="a-ink" x="114" y="138" width="90" height="32" rx="16"/>
+      </svg></div>
+      <div class="body">
+        <span class="mono">Step 02</span>
+        <h2>Qualified proposals</h2>
+        <p>Interested founders move on to proposals for your service, so your calendar fills with conversations worth having.</p>
+        <a class="btn" href="#apply">Apply here <b>→</b></a>
+      </div>
+    </li>
+    <li class="panel offer">
+      <div class="art"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect class="a-bg" width="400" height="200"/>
+        <rect class="a-ink bar" x="100" y="110" width="44" height="70" rx="10" opacity=".35"/><rect class="a-ink bar" x="160" y="84" width="44" height="96" rx="10" opacity=".55"/>
+        <rect class="a-ink bar" x="220" y="58" width="44" height="122" rx="10" opacity=".75"/><rect class="a-ink bar" x="280" y="32" width="44" height="148" rx="10"/>
+      </svg></div>
+      <div class="body">
+        <span class="mono">Step 03</span>
+        <h2>Closed deals</h2>
+        <p>The work continues until the deal is signed, giving the business a more reliable sales function.</p>
+        <a class="btn" href="#apply">Apply here <b>→</b></a>
+      </div>
+    </li>
+  </ul>
+
+  <h2 class="big">Be the first voice <span>founders hear.</span></h2>
+
+  <section class="panel" id="series">
+    <a class="media" href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Watch The Sales Playbook on YouTube" style="border-radius:0;border:0">
+      <svg class="pic" viewBox="0 0 358 277" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect class="a-bg" width="358" height="277"/>
+        <circle class="a-deep" cx="96" cy="130" r="84"/>
+        <path class="a-mid" d="M30 277c0-62 30-96 66-96s66 34 66 96z"/>
+        <circle class="a-ink" cx="96" cy="108" r="30"/>
+        <text class="a-label a-ink" x="196" y="150" font-size="30">The Sales</text>
+        <text class="a-label" x="196" y="184" font-size="30" style="fill:var(--dim)">Playbook</text>
+      </svg>
+      <span class="tag mono tl">YouTube series</span>
+      <span class="play"><svg viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1l16 10L2 21z"/></svg></span>
+    </a>
+    <div class="series-body">
+      <span class="mono">YouTube series</span>
+      <h2>The Sales Playbook</h2>
+      <p>Free episodes on how sales works for founder-led agencies.</p>
+      <a class="btn" id="apply" href="#">Watch on YouTube <b>→</b></a>
+    </div>
+  </section>
+
+  <nav class="chips" aria-label="Social profiles"><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">LinkedIn</a><a href="#">X</a></nav>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <div class="wm">HutchX</div>
+      <div class="mono row"><span>© 2026</span><span>Sales for agencies</span></div>
+    </div>
+  </footer>
+</div>
