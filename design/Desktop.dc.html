@@ -49,6 +49,8 @@ body{margin:0}
 .hx-cta span{transition:translate .25s cubic-bezier(.2,.7,.2,1)}
 .hx-cta:hover span{translate:5px 0}
 .hx-link{position:relative;transition:color .2s ease,translate .2s ease,border-color .2s ease}
+.hx-ul:after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.hx-ul:hover:after{transform:scaleX(1);transform-origin:left}
 .hx-link:hover{color:#ffffff!important;translate:0 -2px;border-color:#ececec!important}
 .hx-thumb{transition:border-color .3s ease,translate .3s ease}
 .hx-thumb:hover{translate:0 -4px;border-color:#6b6b6b!important}
@@ -203,9 +205,9 @@ body{margin:0}
 <div style="color: #9a9a9a; font-size: 14px">Building Predictable Sales Engines for Agencies.</div>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 14px; font-weight: 500">
-<a class="hx-link" href="https://www.instagram.com/simon_hutchx?stkn=a29mN3phdWoxdzJ1" target="_blank" rel="noopener" style="color: #ececec; text-decoration: none">Instagram</a>
-<a class="hx-link" href="https://youtube.com/@simon_hutchx?si=vi6fhQJlvEc0RflU" target="_blank" rel="noopener" style="color: #ececec; text-decoration: none">YouTube</a>
-<a class="hx-link" href="https://www.linkedin.com/in/simon-hutchinson-655290171" target="_blank" rel="noopener" style="color: #ececec; text-decoration: none">LinkedIn</a>
+<a class="hx-link hx-ul" href="https://www.instagram.com/simon_hutchx?stkn=a29mN3phdWoxdzJ1" target="_blank" rel="noopener" style="color: #ececec; text-decoration: none">Instagram</a>
+<a class="hx-link hx-ul" href="https://youtube.com/@simon_hutchx?si=vi6fhQJlvEc0RflU" target="_blank" rel="noopener" style="color: #ececec; text-decoration: none">YouTube</a>
+<a class="hx-link hx-ul" href="https://www.linkedin.com/in/simon-hutchinson-655290171" target="_blank" rel="noopener" style="color: #ececec; text-decoration: none">LinkedIn</a>
 </div>
 </div>
 <div style="display: flex; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid #2e2e2e; color: #9a9a9a; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase"><span>© 2026 HutchX</span><span>All rights reserved</span></div>
