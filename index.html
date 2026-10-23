@@ -17,6 +17,8 @@ body{margin:0}
 .hx-in{animation:hx-rise .8s cubic-bezier(.2,.7,.2,1) backwards}
 .hx-d1{animation-delay:.05s}.hx-d2{animation-delay:.18s}.hx-d3{animation-delay:.3s}.hx-d4{animation-delay:.45s}.hx-d5{animation-delay:.6s}.hx-d6{animation-delay:.75s}
 .hx-play:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #ececec;animation:hx-ring 2.4s ease-out infinite;pointer-events:none}
+.hx-svc{display:grid;grid-template-columns:minmax(0,0.95fr) minmax(0,1fr);gap:28px;align-items:center}
+@media (max-width:640px){.hx-svc{grid-template-columns:minmax(0,1fr);gap:20px}}
 .hx-card{transition:translate .3s ease,border-color .3s ease}
 .hx-bar{transform-box:fill-box;transform-origin:50% 100%;animation:hx-grow 1.1s cubic-bezier(.2,.7,.2,1) .9s backwards}
 @keyframes hx-hl{0%{background-position:150% 0}60%,100%{background-position:-50% 0}}
@@ -75,6 +77,7 @@ img,svg{max-width:100%}
 [style*="repeat(2, minmax(0, 1fr))"],[style*="repeat(3, minmax(0, 1fr))"]{grid-template-columns:minmax(0,1fr)!important}
 [style*="border-right: 1px solid #2e2e2e; text-align: center"]{border-right:0!important;border-bottom:1px solid #2e2e2e}
 [style*="font-size: 112px"]{font-size:clamp(44px,13vw,112px)!important}
+[style*="font-size: 88px"]{font-size:clamp(38px,10.5vw,88px)!important}
 [style*="font-size: 56px"]{font-size:clamp(30px,8vw,56px)!important}
 [style*="font-size: 44px"]{font-size:clamp(26px,7vw,44px)!important}
 [style*="font-size: 42px"]{font-size:clamp(24px,6.4vw,42px)!important}
@@ -116,7 +119,7 @@ img,svg{max-width:100%}
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 28px; padding: 56px 40px; text-align: center">
 <a href="tel:+447539320258" style="color: #ececec; font-size: 44px; line-height: 1; font-weight: 700; letter-spacing: -0.03em; text-decoration: none; white-space: nowrap">+44 7539 320258</a>
 <div style="display: flex; flex-direction: column; justify-content: center; height: 56px; gap: 6px; color: #9a9a9a; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase">
-<span>Any questions? Call or text</span>
+<span>Any questions? Reach out to us</span>
 <a class="hx-link" href="mailto:simon@hutchx.co.uk" style="color: #ececec; text-decoration: none; border-bottom: 1px solid #4a4a4a; align-self: center; text-transform: none; letter-spacing: 0.02em; font-size: 14px">simon@hutchx.co.uk</a>
 </div>
 </div>
@@ -134,13 +137,14 @@ img,svg{max-width:100%}
 <span>[ Who we are ]</span>
 <span style="flex-grow: 1; height: 1px; background: #333333"></span>
 </div>
-<p style="margin: 0; max-width: 980px; font-size: 56px; line-height: 1.18; font-weight: 500; letter-spacing: -0.035em"><span class="hx-mark">HutchX</span> runs sales for <span style="font-weight: 700">founder-led agencies</span>, from the first conversation to the closed deal.</p>
+<p style="margin: 0; max-width: 980px; font-size: 56px; line-height: 1.18; font-weight: 500; letter-spacing: -0.035em"><span class="hx-mark">HutchX</span> hires <span style="font-weight: 700">sales talent that actually deliver</span> or find some <span style="font-weight: 700">missed opportunities</span> in your pipeline.</p>
 </div>
 </div>
 
 <div style="background: #232323">
-<div style="width: 100%; max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 80px 40px 80px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
-<div class="hx-card hx-in hx-d5" style="height: 440px; display: flex; flex-direction: column; border-radius: 28px; overflow: hidden; background: #1c1c1c; border: 1px solid #2e2e2e">
+<div style="width: 100%; max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 80px 40px 80px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px">
+<div class="hx-svc hx-in hx-d5">
+<div class="hx-card" style="height: 260px; display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; background: #1c1c1c; border: 1px solid #2e2e2e">
 <div style="flex-grow: 1; position: relative; background: #262626">
 <svg viewBox="0 0 360 370" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%">
 <rect width="360" height="370" fill="#262626"></rect>
@@ -149,11 +153,15 @@ img,svg{max-width:100%}
 <g class="hx-b hx-b1" style="--i:2"><rect x="36" y="230" width="168" height="56" rx="28" fill="#ececec"></rect><rect x="62" y="254" width="96" height="9" rx="4.5" fill="#121212"></rect></g><g class="hx-b hx-b2" style="--i:3"><rect x="226" y="304" width="76" height="40" rx="20" fill="#121212" stroke="#4a4a4a"></rect><g class="hx-dots"><circle cx="248" cy="324" r="4" fill="#ececec"></circle><circle cx="264" cy="324" r="4" fill="#ececec"></circle><circle cx="280" cy="324" r="4" fill="#ececec"></circle></g></g>
 </svg>
 </div>
-<div style="padding: 24px 24px 28px">
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
 <h3 style="margin: 0; font-size: 26px; line-height: 1.1; font-weight: 600; letter-spacing: -0.03em">Recruitment</h3>
+<p style="margin: 0; color: #a3a3a3; font-size: 16px; line-height: 1.6">We generate and qualify high-intent candidates for recruitment agencies, handling outreach, conversations and booking calls with hiring managers, so you can focus on placements and growth.</p>
+<a class="hx-cta" href="https://hutchx.co.uk/" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 44px; box-sizing: border-box; margin-top: 6px; padding: 0 22px; border-radius: 999px; background: #ececec; color: #121212; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Learn more <span aria-hidden="true">&rarr;</span></a>
 </div>
 </div>
-<div class="hx-card hx-in hx-d5" style="height: 440px; display: flex; flex-direction: column; border-radius: 28px; overflow: hidden; background: #1c1c1c; border: 1px solid #2e2e2e">
+<div class="hx-svc hx-in hx-d5">
+<div class="hx-card" style="height: 260px; display: flex; flex-direction: column; border-radius: 20px; overflow: hidden; background: #1c1c1c; border: 1px solid #2e2e2e">
 <div style="flex-grow: 1; position: relative; background: #ececec">
 <svg viewBox="0 0 360 370" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%">
 <rect width="360" height="370" fill="#ececec"></rect>
@@ -169,18 +177,20 @@ img,svg{max-width:100%}
 </g>
 </svg>
 </div>
-<div style="padding: 24px 24px 28px">
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
 <h3 style="margin: 0; font-size: 26px; line-height: 1.1; font-weight: 600; letter-spacing: -0.03em">Data Recovery</h3>
+<p style="margin: 0; color: #a3a3a3; font-size: 16px; line-height: 1.6">We help businesses recover lost data and revenue by reaching out to unresponsive customers, reactivating lapsed accounts, and booking calls to resolve outstanding balances.</p>
 </div>
 </div>
 </div>
 </div>
 
 <div style="background: #0d0d0d">
-<div class="hx-in hx-d6" style="width: 100%; max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 96px 40px 96px; font-size: 112px; line-height: 0.95; font-weight: 700; letter-spacing: -0.055em">
-<div>Be the first voice</div>
-<div style="color: #6b6b6b">founders hear.</div>
-<div style="margin-top: 48px; font-size: 15px; letter-spacing: 0.06em"><a data-track="schedule_with_us" class="hx-cta" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0XjjGnTs61vyxkZSFfV83Sd8X4I-t5m-pJqUrBXLB6WK4ku76LK04Xrzu49WC_ZJf-PGDTDXFt" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-width: 280px; height: 56px; box-sizing: border-box; padding: 0 32px; border-radius: 999px; background: #ececec; color: #121212; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Schedule with us</a></div>
+<div class="hx-in hx-d6" style="width: 100%; max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: 96px 40px 96px; font-size: 88px; line-height: 0.95; font-weight: 700; letter-spacing: -0.055em">
+<div>Scale your business with our specialties.</div>
+<div style="color: #6b6b6b">Be it recruitment or data recovery.</div>
+<div style="margin-top: 48px; font-size: 15px; letter-spacing: 0.06em"><a data-track="book_call" class="hx-cta" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0XjjGnTs61vyxkZSFfV83Sd8X4I-t5m-pJqUrBXLB6WK4ku76LK04Xrzu49WC_ZJf-PGDTDXFt" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-width: 280px; height: 56px; box-sizing: border-box; padding: 0 32px; border-radius: 999px; background: #ececec; color: #121212; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none">Book a call</a></div>
 </div>
 </div>
 
