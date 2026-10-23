@@ -38,3 +38,9 @@ create trigger button_clicks_normalize before insert on public.button_clicks
 for each row execute function public.button_clicks_normalize();
 revoke all on function public.button_clicks_normalize() from public, anon, authenticated;
 update public.button_clicks set button = 'book_call' where button = 'schedule_with_us';
+
+-- Migration "allow_recruitment_learn_more": track the Recruitment "Learn more" button.
+alter table public.button_clicks drop constraint button_clicks_button_check;
+alter table public.button_clicks add constraint button_clicks_button_check check (button in (
+  'book_call','schedule_with_us','watch_on_youtube','my_story_video',
+  'footer_instagram','footer_youtube','footer_linkedin','recruitment_learn_more'));
